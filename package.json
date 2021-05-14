@@ -1,5 +1,23 @@
 {
   "name": "jest-use-cases",
+  "author": {
+    "email": "emperorvv@gmail.com",
+    "name": "JeGwan",
+    "url": "https://superposition.link"
+  },
   "version": "1.0.0",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "echo 'i am preinstall 😀'",
+    "test": "jest",
+    "pre": "yarn install --production=false"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/jest": "^26.0.23",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3"
+  }
 }
