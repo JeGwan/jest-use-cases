@@ -10,7 +10,8 @@
   "scripts": {
     "preinstall": "echo 'i am preinstall 😀'",
     "test": "jest",
-    "pre": "yarn install --production=false"
+    "pre": "yarn install --production=false",
+    "test-watch": "jest --watchAll"
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
@@ -19,5 +20,8 @@
     "@types/jest": "^26.0.23",
     "babel-jest": "^26.6.3",
     "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
   }
 }

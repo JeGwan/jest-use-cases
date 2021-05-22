@@ -1,5 +1,3 @@
-import sum from "./sum";
-
 /**
  * expect 함수는 그 자체만으로는 쓰이지 않고 matcher 라부르는 chain method를 통해 값을 테스트합니다.
  */
@@ -14,7 +12,7 @@ import sum from "./sum";
  * 여기서는 expect(NaN).toBe(NaN) 해도 true 가 됩니다.
  */
 test("adds 1 + 2 to equal 3", () => {
-  expect(sum(1, 2)).toBe(3);
+  expect(1 + 2).toBe(3);
 });
 
 /**
@@ -41,4 +39,40 @@ test("to objects have same properties", () => {
   // 각자 객체가 참조하는 메모리가 다르므로 다르다고 인식합니다.
   expect(E).toEqual(F);
   // 위의 것은 Equal이 되는데 Object.is는 같은 객체를 가리키면 true를 리턴하기 때문입니다.
+});
+
+test("1 is 1", () => {
+  expect(1).toBe(1);
+});
+
+function getUser(id: number) {
+  if (id <= 0) throw new Error("Invalid ID");
+  return {
+    id,
+    email: `user${id}@test.com`,
+  };
+}
+
+test("return a user object", () => {
+  expect(getUser(1)).toStrictEqual({
+    id: 1,
+    email: `user1@test.com`,
+  });
+});
+
+test("number 0 is falsy but string 0 is truthy", () => {
+  expect(0).toBeFalsy();
+  expect("0").toBeTruthy();
+});
+
+test("array", () => {
+  const colors = ["Red", "Yellow", "Blue"];
+  expect(colors).toHaveLength(3);
+  expect(colors).toContain("Yellow");
+  expect(colors).not.toContain("Green");
+});
+
+test("throw when id is non negative", () => {
+  expect(() => getUser(-1)).toThrow();
+  expect(() => getUser(-1)).toThrow("Invalid ID");
 });
